@@ -2,11 +2,13 @@ package TUBES;
 
 import java.util.Scanner;
 
+import java.util.Scanner;
+
 public class BankQueueMain {
     public static void main(String[] args) {
         StrukturQueue queue = new StrukturQueue();
         Scanner scanner = new Scanner(System.in);
-        int pilihan, number;
+        int pilihan;
         String nama, noTelp, email;
 
         do {
@@ -17,20 +19,17 @@ public class BankQueueMain {
             System.out.println("4. Keluar");
             System.out.print("Pilih menu: ");
             pilihan = scanner.nextInt();
-            scanner.nextLine();  // Membersihkan buffer setelah nextInt()
+            scanner.nextLine();
 
             switch (pilihan) {
                 case 1:
-                    System.out.print("Masukkan nomor antrian: ");
-                    number = scanner.nextInt();
-                    scanner.nextLine();  // Membersihkan buffer setelah nextInt()
                     System.out.print("Masukkan nama nasabah: ");
-                    nama = scanner.nextLine();  // Membaca seluruh baris input untuk nama nasabah
+                    nama = scanner.nextLine();
                     System.out.print("Masukkan nomor telepon: ");
-                    noTelp = scanner.nextLine();  // Membaca seluruh baris input untuk nomor telepon
+                    noTelp = scanner.nextLine();
                     System.out.print("Masukkan email: ");
-                    email = scanner.nextLine();  // Membaca seluruh baris input untuk email
-                    queue.enqueue(number, nama, noTelp, email);
+                    email = scanner.nextLine();
+                    queue.enqueue(nama, noTelp, email);
                     break;
                 case 2:
                     NodeQueue servedCustomer = queue.dequeue();
@@ -52,6 +51,6 @@ public class BankQueueMain {
             }
         } while (pilihan != 4);
 
-        scanner.close();  // Menutup objek Scanner setelah selesai digunakan
+        scanner.close();
     }
 }

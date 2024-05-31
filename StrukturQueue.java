@@ -4,13 +4,21 @@ public class StrukturQueue {
     private NodeQueue FRONT;
     private NodeQueue REAR;
     private int size;
+    private int currentNumber;
+
+    public StrukturQueue() {
+        this.FRONT = null;
+        this.REAR = null;
+        this.size = 0;
+        this.currentNumber = 1;
+    }
 
     public boolean isEmpty() {
         return FRONT == null;
     }
 
-    public void enqueue(int data, String namaCustomer, String noTelp, String email) {
-        NodeQueue newNode = new NodeQueue(data, namaCustomer, noTelp, email);
+    public void enqueue(String namaCustomer, String noTelp, String email) {
+        NodeQueue newNode = new NodeQueue(currentNumber, namaCustomer, noTelp, email);
         if (isEmpty()) {
             FRONT = newNode;
             REAR = newNode;
@@ -19,6 +27,7 @@ public class StrukturQueue {
             REAR = newNode;
         }
         size++;
+        currentNumber++;
     }
 
     public NodeQueue dequeue() {
